@@ -32,6 +32,3 @@ POST http://localhost:5510/login      [SEND]
 
 3. Disponibilizar una ruta GET /usuarios para devolver los datos de un usuario en caso de que esté autenticado
 GET http://localhost:5510/usuarios    [SEND]
-
-## Informe
-Nombre: informe.log
