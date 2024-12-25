@@ -1,4 +1,4 @@
-# Desafío 06 - Tienda Joyería (Diseño avanzado de API REST)
+# Desafío 07 - Autenticación y autorización JWT
 
 ## :computer: Para interactuar con el servidor server.js ejecutar:
 
@@ -9,7 +9,7 @@ npm install pg cors
 npm install pg-format (Manejo sentencias SQL)  
 npm install dotenv (Manejo de variables de entorno)  
 npm install -D nodemon (Habilitar actualizacion Hot Reloading)  
-npm install morgan (Generar informe)
+npm install jwt-simple bcrypt body-parser
 
 node server.js para iniciar el servidor
 
@@ -19,23 +19,19 @@ PG_USER=postgres
 PG_PASSWORD=########  
 PG_PORT=5432  
 PG_DATABASE=joyas  
+JWT_PASSWORD=NadieTeDaraLaClave (Clave para JWT)
 
-PORT=3000
+PORT=5510
 
 ## Ejemplos
-Consulta de joyas con cláusulas en estructura de datos HATEOAS  
-Trae todas las joyas  
-http://localhost:5510/joyas
+1. Permitir el registro de nuevos usuarios a través de una ruta POST /usuarios  
+POST http://localhost:5510/usuarios   [SEND]  
 
-joyas/limit  
-http://localhost:5510/joyas/limit/?limits=3&page=2&order_by=stock_ASC  
+2. Ofrecer la ruta POST /login que reciba las credenciales de un usuario y devuelva un token  
+POST http://localhost:5510/login      [SEND]  
 
-Filtrando las joyas por precio máximo, mínimo, categoría y metal  
-joyas/filter  
-http://localhost:5510/joyas/filter/?precio_max=40000  
-http://localhost:5510/joyas/filter?precio_max=15000  
-http://localhost:5510/joyas/filter?precio_min=20000&precio_max=12000  
-http://localhost:5510/joyas/filter?precio_min=30000&precio_max=12000&categoria=aros  
+3. Disponibilizar una ruta GET /usuarios para devolver los datos de un usuario en caso de que esté autenticado
+GET http://localhost:5510/usuarios    [SEND]
 
 ## Informe
 Nombre: informe.log
